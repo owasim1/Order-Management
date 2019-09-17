@@ -1,20 +1,18 @@
 <template>
-  <div id="app">
-    <router-link v-bind:to="'/'">Home</router-link>
-    <router-link v-bind:to="'/checkout'">Checkout</router-link>
-  <!-- the router outlet, where all matched components would ber viewed -->
-  <router-view></router-view>
+  <div id="checkout">
+    This page will have all the selected items.
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-}
+  export default{
+    name: 'checkout'
+  }
 </script>
+
 <!-- styling for the component -->
 <style>
-#app {
+#about {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
