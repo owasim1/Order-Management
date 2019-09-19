@@ -6,7 +6,8 @@ import Vue from 'vue'
 import App from './App'
 //import the vue router
 import Hello from './components/HelloWorld'
-import Checkout from './components/Checkout'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import VueRouter from 'vue-router'
 //tell vue to use the router
@@ -14,7 +15,6 @@ Vue.use(VueRouter)
 //define your routes
 const routes = [
   {path: '/', component:Hello},
-  {path: '/checkout', component:Checkout}
 ]
 
 // Create the router instance and pass the `routes` option

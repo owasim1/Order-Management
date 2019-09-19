@@ -1,25 +1,34 @@
 <template>
-  <div id="app">
-    <router-link v-bind:to="'/'">Home</router-link>
-    <router-link v-bind:to="'/checkout'">Checkout</router-link>
-  <!-- the router outlet, where all matched components would ber viewed -->
-  <router-view></router-view>
+  <div id="app" class="container my-5">
+    <h1>Order Management</h1>
+    <div class="row">
+      <Item v-for="item in forSale"
+        :key="item.invId"
+        :invId="item.invId"
+        :name="item.name"
+        :price="item.price"/>
+    </div>
   </div>
 </template>
-
 <script>
+import Item from './components/Item.vue'
 export default {
   name: 'app',
-}
+  data() {
+  return {
+    forSale: [
+      { invId: 1, name: 'Item 1', price: 1199 },
+      { invId: 2, name: 'Item 2', price: 1249 },
+      { invId: 3, name: 'Item 3', price: 649 },
+      { invId: 4, name: 'Item 4', price: 125 },
+      ],
+    };
+  },
+  components: {
+    Item,
+  },
+};
 </script>
-<!-- styling for the component -->
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  /* Nothing for now */
 </style>
