@@ -1,8 +1,11 @@
 <template>
   <div id="app" class="container my-5">
-    <h1>Order Management</h1>
+    <h1 align="center">Order Management</h1>
+    <div class="col-md-3">
+        <ShoppingCart />
+    </div>
     <div class="row">
-      <Item v-for="item in forSale"
+      <Item v-for="item in availableItems"
         :key="item.invId"
         :invId="item.invId"
         :name="item.name"
@@ -12,20 +15,16 @@
 </template>
 <script>
 import Item from './components/Item.vue'
+import ShoppingCart from './ShoppingCart.vue'
 export default {
   name: 'app',
-  data() {
-  return {
-    forSale: [
-      { invId: 1, name: 'Item 1', price: 1199 },
-      { invId: 2, name: 'Item 2', price: 1249 },
-      { invId: 3, name: 'Item 3', price: 649 },
-      { invId: 4, name: 'Item 4', price: 125 },
-      ],
-    };
+  computed: {
+    availableItems() { return this.$store.getters.availableItems; },
+    inCheckout() { return this.$store.getters.inCheckout; },
   },
   components: {
     Item,
+    ShoppingCart,
   },
 };
 </script>

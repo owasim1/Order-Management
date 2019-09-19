@@ -4,11 +4,12 @@
 import Vue from 'vue'
 //import the App component
 import App from './App'
-//import the vue router
 import Hello from './components/HelloWorld'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import store from './store.js';
 
+//import the vue router
 import VueRouter from 'vue-router'
 //tell vue to use the router
 Vue.use(VueRouter)
@@ -28,6 +29,7 @@ const router = new VueRouter({
 new Vue({
 //define the selector for the root component
   el: '#app',
+  store,
   //pass the template to the root component
   template: '<App/>',
   //declare components that the root component can access
