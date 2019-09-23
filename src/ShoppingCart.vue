@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#shoppingCart">Cart ({{ numInCart }})</button>
+    <button class="btn btn-dark" data-toggle="modal" data-target="#shoppingCart">Cart ({{ numInCart }})</button>
     <div id="shoppingCart" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -16,13 +16,22 @@
                 <tr v-for="item in cart">
                   <td>{{ item.name }}</td>
                   <td>{{ item.price | dollars }}</td>
+                  <td>
+                    <button class="btn btn-sm btn-danger"
+                    @click="removeFromCart(index)">&times;</button>
+                  </td>
+                  <th></th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>{{ total | dollars }}</th>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" data-dismiss="modal">Keep Shopping</button>
-            <button class="btn btn-primary">Checkout</button>
+            <button class="btn btn-dark">Checkout</button>
           </div>
         </div>
       </div>
@@ -45,9 +54,17 @@ export default {
         });
       });
     },
+    total() {
+      return this.cart.reduce((acc, cur) => acc + cur.price, 0);
+    },
   },
   filters: {
      dollars,
+  },
+  methods: {
+    removeFromCart(index) {
+      this.$store.dispatch('removeFromCart', index);
+    },
   },
 };
 </script>

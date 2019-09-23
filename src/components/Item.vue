@@ -5,7 +5,7 @@
         <h4 class="card-title">{{ name }}</h4>
         <div class="card-text">{{ price | dollars }}</div>
         <div class="row justify-content-end">
-          <button class="btn btn-primary" @click="addToCart(invId)">Add to Order</button>
+          <button class="btn btn-dark" @click="addToCart(invId)">Add to Order</button>
         </div>
       </div>
     </div>
