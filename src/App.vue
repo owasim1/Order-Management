@@ -16,6 +16,7 @@
 <script>
 import Item from './components/Item.vue'
 import ShoppingCart from './ShoppingCart.vue'
+
 export default {
   name: 'app',
   computed: {

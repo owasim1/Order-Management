@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { VueCsvImport } from 'vue-csv-import'
+import d3 from 'd3'
+import csvParse from "d3-dsv";
+
 
 Vue.use(Vuex);
 
@@ -26,5 +30,8 @@ export default new Vuex.Store({
   actions: {
     addToCart(context, invId) { context.commit('ADD_TO_CART', invId); },
     removeFromCart(context, index) { context.commit('REMOVE_FROM_CART', index); },
+  },
+  components: {
+    VueCsvImport,
   },
 });
